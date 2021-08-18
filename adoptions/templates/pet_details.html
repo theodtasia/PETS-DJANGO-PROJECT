@@ -1,0 +1,45 @@
+<h1> {{ pet.name|capfirst }} </h1>
+
+<ol>
+    {{ pet.species }}
+</ol>
+
+<ol>
+{% if pet.breed %}
+    
+Breed: {{ pet.breed }}
+{% endif %}
+</ol> 
+
+<ol>
+    {% if pet.age %}
+
+    Age: {{ pet.age }}
+    {% endif %} 
+</ol>
+
+<ol>
+    {% if pet.sex %}
+
+Sex: {{ pet.sex }}
+{% endif %}
+</ol>
+<ol>
+    {% if pet.vaccinations.all %}
+
+    Vaccinations for:
+    
+        {% for vaccination in pet.vaccinations.all %}
+        {{ vaccination.name }}
+        {% endfor %} 
+    
+    {% endif %}
+       
+</ol>
+
+ 
+Submitted by: {{ pet.submitter }}
+
+Submitted on: {{ pet.submission_date|date:"M d Y" }}
+
+{{ pet.description }}
